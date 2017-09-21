@@ -57,6 +57,7 @@ public class ListenerThread extends Thread {
             if (multicastSocket != null) {
                 multicastSocket.close(); //fecha o socket
             }
+            this.interrupt();
         } catch (SocketException e) {
             System.out.println("Socket: " + e.getMessage());
         } catch (IOException e) {

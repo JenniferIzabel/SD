@@ -213,8 +213,8 @@ public class ChatMulticastGUI extends javax.swing.JFrame {
             this.textPorta.setEditable(false);
 
             conexao.joinGroup(ip, porta);
-            String msg = "[" + this.textApelido.getText() + " entrou no grupo] \n";
-            this.areaMsg.append(msg);
+            String msg = this.textApelido.getText() + " entrou no grupo";
+            enviarMsg(msg,"");
         } else {
             this.areaMsg.append("\nVocê já está em um grupo, Saia dele antes de entrar em outro\n");
         }
@@ -224,13 +224,13 @@ public class ChatMulticastGUI extends javax.swing.JFrame {
         if (onGroup) {
             onGroup = false;
 
+            String s = "\n["+this.textApelido.getText()+" saiu ]\n";
+            enviarMsg(this.textApelido.getText(), s);
             conexao.leaveGroup();
 
             this.textIP.setEditable(true);
             this.textPorta.setEditable(true);
             this.areaMsg.setText("");
-            String s = "\n["+this.textApelido.getText()+" saiu ]\n";
-            enviarMsg(this.textApelido.getText(), s);
         } else {
             this.areaMsg.append("\nVocê já não está em nenhum grupo\n");
         }
@@ -241,7 +241,7 @@ public class ChatMulticastGUI extends javax.swing.JFrame {
     }
 
     private synchronized void enviarMsg(String apelido, String msg) {//synchronized implementa semáfaro na região crítica
-        msg = "[" + apelido + "] " + msg;
+        msg = "[" + apelido + "]: " + msg;
         byte[] message = msg.getBytes(StandardCharsets.UTF_8);
         conexao.sendMessage(message);
     }
