@@ -1,4 +1,4 @@
-package sockets2;
+package codigosProfessor;
 
 /**
  * UDPClient: Cliente UDP

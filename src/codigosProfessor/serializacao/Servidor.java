@@ -1,4 +1,4 @@
-package sockets2.serializacao;
+package codigosProfessor.serializacao;
 
 import java.net.*;
 import java.io.*;

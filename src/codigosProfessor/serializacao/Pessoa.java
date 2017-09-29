@@ -1,4 +1,4 @@
-package sockets2.serializacao;
+package codigosProfessor.serializacao;
 
 /*
  * Pessoa.java
