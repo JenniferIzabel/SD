@@ -1,0 +1,12 @@
+Executando com Java 6
+
+- Inicializar o servidor de nomes
+rmiregistry
+
+- Inicializar o servidor
+java -Djava.security.policy=policy.txt -Djava.rmi.server.codebase=file:<dir> Servidor
+
+<dir>: substituir pelo diretorio onde se encontra a implementacao do objeto remoto e a interface
+
+- Inicializar o cliente
+java -Djava.security.policy=policy.txt Cliente
